@@ -5,5 +5,5 @@ module fulladder(
     input in2,
     input cin);
 
-assign {crry, sum} = in1+in2+cin;
+assign {crry, sum} = in1 + in2 + cin;
 endmodule
