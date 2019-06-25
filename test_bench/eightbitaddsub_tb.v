@@ -13,12 +13,18 @@ integer v1, v2;
 eightbitaddsub ins1(crry, sum, in1, in2, ctrl);
 
 initial begin
-    $dumpfile("eightbitaddsub_dump.lxt");
+    $dumpfile("eightbitaddsub_inints_dump.lxt");
     $dumpvars(0,ins1);
-    $monitor("in1: %b | in2: %b | ctrl: %b || crry: %b | sum: %b",in1, in2, ctrl, crry, sum);
+    $monitor("in1: %d | in2: %d | ctrl: %d || crry: %d | sum: %d",in1, in2, ctrl, crry, sum);
+    $display("---------------add opeartion----------------------");
     for (v1 = 8'b0000_0000; v1 < 256; v1=v1+8'b0000_0001) begin
         for (v2 = 8'b0000_0000; v2 < 256; v2=v2+8'b0000_0001) begin
             #10 in1 = v1; in2 = v2; ctrl = 1'b0;
+        end
+    end
+    $display("---------------sub opeartion----------------------");
+    for (v1 = 8'b0000_0000; v1 < 256; v1=v1+8'b0000_0001) begin
+        for (v2 = 8'b0000_0000; v2 < 256; v2=v2+8'b0000_0001) begin
             #10 in1 = v1; in2 = v2; ctrl = 1'b1;
         end
     end
